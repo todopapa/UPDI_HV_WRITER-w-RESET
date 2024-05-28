@@ -78,19 +78,21 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 3. GND
 になります。
 
-
-
-
-
- 
-
 ## 部品リスト　
-頭のTINY202_IR_REMOTE_ISR1.atsln がプロジェクトファイルです。TINY202_IR_REMOTE_ISR1フォルダ内には  
+大半は秋月電機通商で購入可能です。
+一部の部品はAliExpressで購入しています。
+serialUSB変換モジュールと一緒に注文してくださいね。
+
+基板はJLCPCBに発注しました。　
+
+5枚で送料込み約560円、2～3年前に比べるとOCS使った送料が安くなっています。
 * main.c : メインプログラム  
 * IRcodes.c : 元は北米/アジア仕向け 各社テレビのON/OFF 赤外線コードの構造体  
   　　　　　　　→ 自分が使う装置の赤外線コードに書き換える,TINY202は容量が少ないのが　5～10くらいが入る  
 * util.c : デバッグ用ソフトUart (未使用）  
 * Debugフォルダ：生成したHEXファイル、ELFファイルが入る  
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e85a9-cd0d-40b4-8827-e8228541acea" width="640">
+
 
 ## 使い方
 今回はPanasonicの天井灯のリモコンを制御します。  
