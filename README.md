@@ -1,7 +1,8 @@
 # UPDI_HV_WRITER-w-RESET
 This is a new AVR ATTINY series UPDI programmer with HV pulse injection avility on power on reset timing.
 <!-- ![TINY202_IR_REMOTE 2024-05-02 233458](https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/7a59901e-49d1-468d-9323-dc31d36176b7)　-->
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/50a50b61-3304-41e0-af4f-afe8cef13893" width="480">
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc" width="480">
+https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc
 
 ## はじめに
 ### 中華製USB Serial変換モジュール基板を使ったUPDI対応のプログラマーについて
@@ -26,9 +27,10 @@ technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?4
 これらの方式の共通的なところは、プログラマーをターゲット機器にUPDIで接続して、非同期にUPDI線にHVP(12Vパルス)を与える
 所だと思います。
 これに対して、今回採用した名張市つつじが丘おもちゃ病院の大泉院長の方式では、POR(パワーオンリセット)後に HVPを与えるところが違います。
-TINY202/402のデータシートを見てみましょう。
-<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6b" width = "480">
-**日本語版 30.3.2.1.3. RESETﾋﾟﾝの高電圧無効化でのUPDI許可** 英語版：30.3.2.2 UPDI Enable with 12V Override of RESET Pin　**  
+TINY202/402のデータシートを見てみましょう。  
+<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc" width = "480">
+https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc
+**日本語版 30.3.2.1.3. RESETﾋﾟﾝの高電圧無効化でのUPDI許可** 
 
 次の章には、下記のように明確に記されています。
 **30.3.2.1.4. 汎用入出力(GPIO)に対する出力許可計時器保護
