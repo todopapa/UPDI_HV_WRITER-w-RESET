@@ -47,7 +47,8 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 以上の内容で、今回のリセット付きnewATTINY用UPDI HV対応プログラマーの基本方式を決めました。
 * 基本は安価な中華製serialUSBモジュールを使用したUPDIserialプログラマー　
 * RESETスイッチを付けて、RESET終了後の8mS以内に2～400us幅の12V高電圧パルス(HVP)を印加できるようにする
-* RESET時にターゲットにHVPを印加するためのHVPスイッチを付ける。 　　
+* RESET時にターゲットにHVPを印加するためのHVPスイッチを付ける（常に印加する時はSWをショートすればOK)
+* ターゲットにserialUSBモジュールからの3.3V/5Vを印加できる。(3.3Vは50ｍAくらいしか流せないので注意）
 
   このような仕様にして、使い方は下記のようになります。
 * 通常のUPDI書き込みは、どのスイッチも押さずに書き込みが可能
@@ -56,29 +57,29 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
   PA0 RESETピンがUPDI通信可能になって、プログラムできます。次のRESETでプログラムが有効になります。　　  
 
 ## 回路図
-<img src="https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/d0b8481c-817d-47d6-a535-f8ba9e405f51" width="360">   
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="360">   
+**UPDI_HVP_PROGRAMMER_V18回路図**
 
-**トドお父さん版 TINY202_IR_REMOTE V1.1 for ATMEL STUDIO　回路図**
+回路図と基板ははKiCadで設計しました。
+接続は、serialUSBモジュールからは6P
+1. GND
+2. DTS
+3. Vcc
+4. TX
+5. RX
+6. DTR
 
-回路はAdafruitのV1.1をベースにして、ATTINY85からATTINY202に変更しています。  
+ターゲット機器へは3Pで
+1. UPDI
+2. TG_Vdd(3.3Vか5V）
+3. GND
+になります。
 
-また、オリジナルはRESETを"L"にしてプログラムを先頭から走らせるようにしていました。  
-ATTINY202はRESETがUPDIピンにアサインされてハードRESETが使えません。  
-このため、ピンチェンジ割り込みを使ってプログラムを制御します。  
 
-今回はPA1=SW1，PA6=SW2、PA7=SW0として、タクトSWを3つ実装して３種のIRコードを発信できるようにしています。  
-(この場合、各入力ピンに内部プルアップ指定、割り込み指定をします）  
 
-出力のIR LEDは、PA3を、動作確認用のLEDはPA2をアサインしています。  
-動作確認用のLEDは2kΩを入れてます。最近のLEDは感度が高いのでこれでOKのようです。  
-(暗い場合は1kΩ等に変更してください）  
 
-IR LEDはPA3のTIMER1とCMP0の比較が一致した時に、WO0がトグルする構成になっています。  
-PA3のWO0信号は330Ωを介しQ1トランジスタ2SC1815のベースに入力しています。  
-Q1のコレクタに２つのIR LEDを並列に接続してパルス的に大電流で駆動します。  
 
-IR LEDには直列に10Ωの抵抗をいれてますが、実験的には無くてもOKの様です。  
-（Q1トランジスタのベース電流ｘhfeで流せるが実際はIR LEDの特性でリミットがかかる）    
+ 
 
 ## ATMEL STUDIOプロジェクトファイル　　
 頭のTINY202_IR_REMOTE_ISR1.atsln がプロジェクトファイルです。TINY202_IR_REMOTE_ISR1フォルダ内には  
