@@ -27,8 +27,7 @@ technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?4
 所だと思います。
 これに対して、今回採用した名張市つつじが丘おもちゃ病院の大泉院長の方式では、POR(パワーオンリセット)後に HVPを与えるところが違います。
 TINY202/402のデータシートを見てみましょう。
-
-<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7f0bd311-0e67-4229a13-09a60c102a56"width="480">
+<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6b" width = "480">
 **日本語版 30.3.2.1.3. RESETﾋﾟﾝの高電圧無効化でのUPDI許可** 英語版：30.3.2.2 UPDI Enable with 12V Override of RESET Pin　**  
 
 次の章には、下記のように明確に記されています。
