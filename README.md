@@ -4,17 +4,25 @@ This is a new AVR ATTINY series UPDI programmer with HV pulse injection avility 
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/50a50b61-3304-41e0-af4f-afe8cef13893" width="480">
 
 ## はじめに
-### TB-B-GONEをベースに汎用リモコンを作る　　
-前回 TV-B-GONE V1.2のファームウェアをATMEL STUDIO7.0に移植しました。  
-今回は、下記の内容を実装します。  
-
-1.CPUをATTINY85から、ATTINY202に移植する。  
-2.TVの電源ON/OFF制御だけでなく、汎用のIRリモコンとして使用できるようにする。  
-3.そのためにスイッチを３個つけて、ピンチェンジ割り込みを使って３種類の制御ができるようにする。  
-
+### 中華製USB Serial変換モジュール基板を使ったUPDI対応のプログラマーについて
+AVR New ATTINY 0/1/2 シリーズは旧ATTINY13,85等より性能が上がって、値段も手ごろなので
+これを使いたいと思うのですが、書き込み方式が今までの3線ICSPから、1線のUPDI方式にかわり
+いままでのAVR ISP MK2とかが使えなくなりました。
+また、手持ちの中華製のパラレルプログラマーTL866-IIも対応していないので、高電圧プログラム
+によるFUSE書き替えもできなくなり、不便になりました。
+そのような背景で、高電圧プログラムに対応したUPDI対応のプログラマーを作りました。
+下のステップで開発を行いました。
+1. 中華製USB Serial変換モジュールを使ったUPDI対応のプログラマーを作る。
+2. UPDI線にPOR(パワーオンリセット)時に12Vパルスを印加できるタイミング回路を設計する。  
+3. 手作り試作で動作を検証した後、基板を起こして正式に製作する。
+4. 
 ### このプロジェクトの概要
-TV-B-GONEはライセンスフリーで、Adafruit社が最初の[TV-BーGONEキット](https://www.adafruit.com/product/73)を出したのは2005年？前後で、  
-8PINのAVRマイコン ATTINY85 CPUを使って制御しています。  
+HV対応のUPDIプログラマーは各種市場に出ています。代表的なのは
+Adafruitさんの [Adafruit High Voltage UPDI Friend](https://blog.adafruit.com/2024/02/29/coming-soon-adafruit-high-voltage-updi-friend-usb-serial-updi-programmer/)
+wagiminatorさんの[SerialUPDI_HV_Programmer](https://github.com/wagiminator/AVR-Programmer/tree/master/SerialUPDI_HV_Programmer)
+technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?48MP)
+といったところでしょうか？
+  
 ハードウェアとファームウェアは当初のV1.0から、いまはV1.2に進化しています。  
 <img src="https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/751ad074-005d-4b4e-a7a8-8ae2165690f8)" width="480">
 <!-- ![TV-B-GONE Adafruit schematics_2024-05-02 235112](https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/751ad074-005d-4b4e-a7a8-8ae2165690f8)TV_B_GONE_1R1TV_B_GONE_1R1_AV_AV  -->
