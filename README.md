@@ -25,14 +25,18 @@ technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?4
   
 これらの方式の共通的なところは、プログラマーをターゲット機器にUPDIで接続して、非同期にUPDI線にHVP(12Vパルス)を与える
 所だと思います。
-これに対して、名張市つつじが丘おもちゃ病院の大泉院長の設計では、POR(パワーオンリセット)後に HVPを与えるところが違います。
+これに対して、今回採用した名張市つつじが丘おもちゃ病院の大泉院長の方式では、POR(パワーオンリセット)後に HVPを与えるところが違います。
 TINY202/402のデータシートを見てみましょう。
 
+<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7f0bd311-0e67-4229a13-09a60c102a56"width="480">
+**日本語版 30.3.2.1.3. RESETﾋﾟﾝの高電圧無効化でのUPDI許可** 英語版：30.3.2.2 UPDI Enable with 12V Override of RESET Pin　**  
 
-
-<img src="https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/751ad074-005d-4b4e-a7a8-8ae2165690f8)" width="480">
-<!-- ![TV-B-GONE Adafruit schematics_2024-05-02 235112](https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/751ad074-005d-4b4e-a7a8-8ae2165690f8)TV_B_GONE_1R1TV_B_GONE_1R1_AV_AV  -->
-**Adafruit TV-BーGONE V1.1　回路図**  
+次の章には、下記のように明確に記されています。
+**30.3.2.1.4. 汎用入出力(GPIO)に対する出力許可計時器保護
+ｼｽﾃﾑ構成設定0(FUSE.SYSCFG0)ﾋｭｰｽﾞのRESETﾋﾟﾝ構成設定(RSTPINCFG)ﾋﾞｯﾄが’00’の時に、RESETﾋﾟﾝは汎用入出力(GPIO)と
+して構成設定されます。GPIOが出力を活動的に駆動するのとUPDI高電圧(HV)許可手順開始の間での潜在的な衝突を避けるた
+め、GPIO出力駆動部はｼｽﾃﾑ ﾘｾｯﾄ後に最小8.8ms間禁止されます。
+HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ONﾘｾｯﾄ(POR)を発行することが推奨されます。**
 
 ## **TINY202_IR_REMOTE_ISR1**
 は、AVRマイコン ATTNY202 のファームウェアです。 　 
