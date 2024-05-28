@@ -84,7 +84,7 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 
  
 
-## ATMEL STUDIOプロジェクトファイル　　
+## 部品リスト　
 頭のTINY202_IR_REMOTE_ISR1.atsln がプロジェクトファイルです。TINY202_IR_REMOTE_ISR1フォルダ内には  
 * main.c : メインプログラム  
 * IRcodes.c : 元は北米/アジア仕向け 各社テレビのON/OFF 赤外線コードの構造体  
