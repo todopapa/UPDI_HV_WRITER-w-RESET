@@ -17,13 +17,19 @@ AVR New ATTINY 0/1/2 シリーズは旧ATTINY13,85等より性能が上がって
 3. 手作り試作で動作を検証した後、基板を起こして正式に製作する。
 4. 
 ### このプロジェクトの概要
-HV対応のUPDIプログラマーは各種市場に出ています。代表的なのは
-Adafruitさんの [Adafruit High Voltage UPDI Friend](https://blog.adafruit.com/2024/02/29/coming-soon-adafruit-high-voltage-updi-friend-usb-serial-updi-programmer/)
-wagiminatorさんの[SerialUPDI_HV_Programmer](https://github.com/wagiminator/AVR-Programmer/tree/master/SerialUPDI_HV_Programmer)
-technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?48MP)
+HV対応のUPDIプログラマーは各種市場に出ています。代表的なのは  
+Adafruitさんの [Adafruit High Voltage UPDI Friend](https://blog.adafruit.com/2024/02/29/coming-soon-adafruit-high-voltage-updi-friend-usb-serial-updi-programmer/)  
+wagiminatorさんの[SerialUPDI_HV_Programmer](https://github.com/wagiminator/AVR-Programmer/tree/master/SerialUPDI_HV_Programmer)  
+technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?48MP)  
 といったところでしょうか？
   
-ハードウェアとファームウェアは当初のV1.0から、いまはV1.2に進化しています。  
+これらの方式の共通的なところは、プログラマーをターゲット機器にUPDIで接続して、非同期にUPDI線にHVP(12Vパルス)を与える
+所だと思います。
+これに対して、名張市つつじが丘おもちゃ病院の大泉院長の設計では、POR(パワーオンリセット)後に HVPを与えるところが違います。
+TINY202/402のデータシートを見てみましょう。
+
+
+
 <img src="https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/751ad074-005d-4b4e-a7a8-8ae2165690f8)" width="480">
 <!-- ![TV-B-GONE Adafruit schematics_2024-05-02 235112](https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/751ad074-005d-4b4e-a7a8-8ae2165690f8)TV_B_GONE_1R1TV_B_GONE_1R1_AV_AV  -->
 **Adafruit TV-BーGONE V1.1　回路図**  
