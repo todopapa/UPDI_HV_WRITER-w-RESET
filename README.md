@@ -59,7 +59,8 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
   PA0 RESETピンがUPDI通信可能になって、プログラムできます。次のRESETでプログラムが有効になります。　　  
 
 ## 回路図
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="360">     
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="640">
+
 **UPDI_HVP_PROGRAMMER_V18回路図**  
 
 回路図と基板ははKiCadで設計しました。  
