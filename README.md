@@ -1,7 +1,8 @@
 # UPDI_HV_WRITER-w-RESET
 This is a new AVR ATTINY series UPDI programmer with HV pulse injection avility on power on reset timing.
 <!-- ![TINY202_IR_REMOTE 2024-05-02 233458]https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965-->
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965" 
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965"  width = "480">  
+
 ## はじめに
 ### 中華製USB Serial変換モジュール基板を使ったUPDI対応のプログラマーについて
 AVR New ATTINY 0/1/2 シリーズは旧ATTINY13,85等より性能が上がって、値段も手ごろなので
@@ -28,20 +29,21 @@ technoblogyさんの [Tiny UPDI-HV Programmer](http://www.technoblogy.com/show?4
 [ｔｉｎｙＡＶＲプログラマー（インタフェース製作）](http://tutujith.blog.fc2.com/blog-entry-729.html)  
 
 さて、TINY202/402のデータシートを見てみましょう。    
-<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc" width = "480">
-https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc
-**日本語版 30.3.2.1.3. RESETﾋﾟﾝの高電圧無効化でのUPDI許可** 
-HVPの印加は、/RESET信号が"H"に戻ってから、HVPのパルス幅は100～1ｍS以内とのことですね。
+<img src= "https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d541ac43-7fc5-4661-946c-c52dff27c6bc" width = "480">  
+**日本語版 30.3.2.1.3. RESETﾋﾟﾝの高電圧無効化でのUPDI許可**   
 
-次の章には、下記のようにHVPとPORのタイミングについて明確に記されています。
-**30.3.2.1.4. 汎用入出力(GPIO)に対する出力許可計時器保護
+HVPの印加は、/RESET信号が"H"に戻ってから、HVPのパルス幅は100～1ｍS以内とのことですね。  
+
+次の章には、下記のようにHVPとPORのタイミングについて明確に記されています。  
+**30.3.2.1.4. 汎用入出力(GPIO)に対する出力許可計時器保護  
 ｼｽﾃﾑ構成設定0(FUSE.SYSCFG0)ﾋｭｰｽﾞのRESETﾋﾟﾝ構成設定(RSTPINCFG)ﾋﾞｯﾄが’00’の時に、RESETﾋﾟﾝは汎用入出力(GPIO)と
 して構成設定されます。GPIOが出力を活動的に駆動するのとUPDI高電圧(HV)許可手順開始の間での潜在的な衝突を避けるた
 め、GPIO出力駆動部はｼｽﾃﾑ ﾘｾｯﾄ後に最小8.8ms間禁止されます。
 HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ONﾘｾｯﾄ(POR)を発行することが推奨されます。**
 
-前の2方式は、USBSerialモジュールのRTS/DTR信号がプログラム前に "L" に下がるタイミングでHVP印加していますので、
-非同期にATTINYのRESETピンに高電圧パルスが加わります。大泉院長の方式の方がデータシート守ってていいと思います。
+前の2方式は、USBSerialモジュールのRTS/DTR信号がプログラム前に "L" に下がるタイミングでHVP印加していますので、非同期にATTINYのRESETピンに高電圧パルスが加わります。
+結論として、大泉院長の方式の方がデータシートの条件を守っているのがいいと思います。 
+実際にPA0 RESETピンがGPIOに設定されていた場合、POR後の8.8ｍS Hi-Zになっている間にHVPを加えるのが、ターゲット機器に損傷を与えにくい良い方法だと思います。
 
 ## **TINY UPDI_HV_WRITER-ｗ-RESETの基本方針**
 以上の内容で、今回のリセット付きnewATTINY用UPDI HV対応プログラマーの基本方式を決めました。
@@ -57,11 +59,11 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
   PA0 RESETピンがUPDI通信可能になって、プログラムできます。次のRESETでプログラムが有効になります。　　  
 
 ## 回路図
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="360">   
-**UPDI_HVP_PROGRAMMER_V18回路図**
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="360">     
+**UPDI_HVP_PROGRAMMER_V18回路図**  
 
-回路図と基板ははKiCadで設計しました。
-接続は、serialUSBモジュールからは6P
+回路図と基板ははKiCadで設計しました。  
+接続は、serialUSBモジュールからは6P  
 1. GND
 2. DTS
 3. Vcc
