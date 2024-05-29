@@ -64,10 +64,10 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 
   このような仕様にして、使い方は下記のようになります。
 * 通常のUPDI書き込みは、どのスイッチも押さずに書き込みが可能
-* FUSEでPA0 RESETピンがUPDI以外に設定の場合はプログラム前に高電圧(HVP)を印加して、UPDIでプログラムする。
-  操作方法は、1.RESETスイッチとHVPスイッチを同時に押す 2.RESETスイッチを解除後、続けてHVPスイッチを開放
-  PA0 RESETピンがUPDI通信可能になって、プログラムできます。次のRESETでプログラムが有効になります。
-  ※ 常にRESET時にHVPを印加してよい場合は、HVPスイッチを線でショートしてください。RESET押しのみでOKになります。　  
+* FUSEでPA0 RESETピンがUPDI以外に設定の場合はプログラム前に高電圧(HVP)を印加して、UPDIでプログラムする。  
+  操作方法は、1.RESETスイッチとHVPスイッチを同時に押す 2.RESETスイッチを解除後、続けてHVPスイッチを開放  
+  PA0 RESETピンがUPDI通信可能になって、プログラムできます。次のRESETでプログラムが有効になります。  
+  ※ 常にRESET時にHVPを印加してよい場合は、HVPスイッチを線でショートしてください。RESET押しのみでOKになります  　  
 
 ## 回路図
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="640">
