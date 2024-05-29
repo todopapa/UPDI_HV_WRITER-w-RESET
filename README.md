@@ -149,8 +149,8 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。
  　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。
 
-  [!['オルゴール演奏テスト']('[サムネイル画像のURL](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/785db1be-8139-49c1-a523-1854842bd3d5)')]('https://youtu.be/el-AeCiNPmo')
-
+  [!['オルゴール演奏テスト']('[(https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/785db1be-8139-49c1-a523-1854842bd3d5)')]('https://youtu.be/el-AeCiNPmo')
+[!['オルゴール演奏テスト']('https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/785db1be-8139-49c1-a523-1854842bd3d5')]('https://youtu.be/el-AeCiNPmo')
 
   以上の内容になります。
 
