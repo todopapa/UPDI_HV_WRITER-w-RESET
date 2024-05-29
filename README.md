@@ -3,11 +3,7 @@ This is a new AVR ATTINY series UPDI programmer with HV pulse injection avility 
 <!-- ![TINY202_IR_REMOTE 2024-05-02 233458]https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965-->
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965"  width = "480">  
 
-![IMG_0688_sumnail](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)
-
 ## はじめに
-![IMG_0688_small](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/785db1be-8139-49c1-a523-1854842bd3d5)
-
 ### USB Serial変換基板を使ったUPDI対応プログラマー
 AVR New ATTINY 0/1/2 シリーズは旧ATTINY13,85等より性能が上がって、値段も手ごろなので
 これを気軽に使いたいと思いました。  
@@ -57,6 +53,7 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 実際にPA0 RESETピンがGPIOに設定されていた場合、CPUの入出力と衝突する恐れがないPOR後の8.8ｍS Hi-Zの間に
 12VのHVP高電圧パルスを短い数百uS加えるのが安全な方式になるかと思います。
 
+## 設計内容
 ## **TINY UPDI_HV_WRITER-ｗ-RESETの基本方針**
 以上の検討内容で、今回のリセット付きnewATTINY用UPDI HV対応プログラマーの基本方式を決めました。
 * 基本は安価な中華製USBserial基板を使用したUPDIserialプログラマー
@@ -73,7 +70,8 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
   PA0 RESETピンがUPDI通信可能になって、プログラムできます。次のRESETでプログラムが有効になります。  
   ※ 常にRESET時にHVPを印加してよい場合は、HVPスイッチを線でショートしてください。RESET押しのみでOKになります  　  
 
-## 回路図
+
+### 回路図
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/d5f86092-47d6-4fc4-9925-b66a0f7be015" width="640">
 
 **UPDI_HVP_PROGRAMMER_V18回路図**  
@@ -94,7 +92,7 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 3. GND
 Arduino用のジャンパーワイヤでターゲット機器と接続します。
 
-## 部品リストと購入先
+### 部品リストと購入先
 大半は秋月電機通商で購入可能です。
 一部の部品はAliExpressで購入しています。
 serialUSB変換モジュールと一緒に注文してくださいね。
@@ -112,7 +110,7 @@ serialUSB変換モジュールと一緒に注文してくださいね。
 
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e4f9ec98-439f-4367-9a6f-9f7e3a40f345" width="640">
 
-## 実装の注意点
+### 実装の注意点
 実装もとくに注意する点はないかと思います。  
 ほとんどチップ部品を使ってますので、慣れてない人には一部大変かもしれません。
 SMD(表面実装)の練習と思って頑張ってみてくださいね。 
@@ -124,7 +122,7 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 半田付けスタンドもあると便利ですよ。  
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e88c25ff-851e-4a96-863b-56bd53ab7973" width="480">  
 
-## 使い方
+### 使い方
 つつじが丘おもちゃ病院の大泉さんのTINY402電子オルゴールV1.2のテスト回路を実装した時を例にして使い方を説明します。    
 手順としては下記のようになります。  
 ・テストプロジェクトをATMEL STUDIOでコンパイルします。生成したHEXファイルはプロジェクトのreleaseに入ります。  
@@ -150,7 +148,7 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。
  　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。
 
-[![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- 画像をクリックするとYoutubeへの動作確認動画に飛びます。ブラウザの戻る、で戻ります**    
+[![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像をクリックするとYoutubeへの動作確認動画に飛びます。ブラウザの戻る、で戻ります**    
 
   以上の内容になります。  
 
