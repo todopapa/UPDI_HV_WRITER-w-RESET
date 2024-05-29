@@ -119,39 +119,34 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e88c25ff-851e-4a96-863b-56bd53ab7973" width="480">  
 
 ## 使い方
-今回はPanasonicの天井灯のリモコンを制御します。  
-・タクトSWを押すとリモコンコードの発信が始まります。  
+つつじが丘おもちゃ病院の大泉さんのTINY402電子オルゴールV1.2のテスト回路を実装した時を例にして使い方を説明します。  
+手順としては下記のようになります。
+・テストプロジェクトをATMEL STUDIOでコンパイルします。生成したHEXファイルはプロジェクトのreleaseに入ります。
 
-・リモコンは"mode切り替え", "UP", "DOWN" の3種類のコードを発信します。  
+・ターゲットとしてブレッドボード上にATTINY402を使ったテスト回路を組みます。
 
-・リモコンコード発信の動作中は赤LEDが点滅して動作中を知らせます。  
+・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。 
 
-・全部のコードが発振されるまで（テレビが消えるまで）押し続けてください。    
+・GUIのAVRDUDESSをPCにインストールしておきます。
+　さきほどのテスト用HEXファイルをターゲットのATTINY402に書き込みます。
+　このときは、まだFUSEビットが書き込まれていないので、そのまま書けるはずです
+  もし、FUSEが書き込まれていた場合は、書き込み機の黄色ボタンと赤ボタンを上にある手順で押してから書いて下さい。
+  
+・次にFUSEの書き込みを行います。AVRDUDESSが新ATTINYシリーズのFUSE書き込みに対応していないので、
+　今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。
 
+・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)
+　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。
+ 　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。
 
-## スリープ時電流
-ATTINY202のスリープ時電流を測定しました。  
-0.1uAで、ATTINY85の0.2～0.3uAより明らかに小さいです。  
-<!--![IMG_0471](https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/f6b65397-b703-45a6-a5ef-4505950a0ba0)-->
-<img src="https://github.com/todopapa/TINY202_IR_REMOTE_ISR/assets/16860878/f6b65397-b703-45a6-a5ef-4505950a0ba0" width="320">  
+  以上の内容になります。
 
-## クロックの設定 (8MHz)
-今回は、ATTINY85のクロックに合わせてクロックは8MHz設定にします。  
-（assmblerのNOPでタイミングを調整した delay_ten_us() という10uS単位のディレイ関数があるためです）
-
-## 他のATTINY202開発参考資料
-
-pin change Interrupt  
-https://www.avrfreaks.net/s/topic/a5C3l000000UaC5EAK/t152923  
-
-Technoblogy New ATtiny Low Power  
-http://www.technoblogy.com/show?2RA3  
-
-New ATTINY コード記述方法　Direct Port Manipulation  
-https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/Ref_DirectPortManipulation.md  
-
-Microchip  Getting Started with GPIO TB3229  
-https://www.microchip.com/en-us/application-notes/tb3229  
-
+## 他のATTINY202/402 UPDIプログラマ(書き込み機）開発参考資料
 ATTINY202/402/802 datasheet  
-https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATtiny202-204-402-404-406-DataSheet-DS40002318A.pdf  
+https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATtiny202-204-402-404-406-DataSheet-DS40002318A.pdf 
+つつじが丘おもちゃ病院tinyAVRプログラマー
+http://tutujith.blog.fc2.com/blog-entry-726.html
+つつじが丘おもちゃ病院tinyAVR電子オルゴールVer1_2（tiny402をサポート）
+http://tutujith.blog.fc2.com/blog-entry-741.html
+糸魚川「おもちゃクリニックゆりかご」Dr.わたなべ氏 おもちゃ修理「電子カルテ」
+https://blog.canpan.info/charts/
