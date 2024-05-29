@@ -174,10 +174,10 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 ### タイミング確認
 ・オシロでタイミングを確認しました。 
 **ターゲットのパスコンが１０uFの時**　上がUDPI信号　下がTG_Vdd(ターゲット電源)電圧 1ｍS/div  
-![IMG_0686](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/af174b25-3709-483d-86ac-424630ab51ce)  
+ <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/af174b25-3709-483d-86ac-424630ab51ce" width="480"> 
 
 **ターゲットのパスコンが１００uFの時** 上がUDPI信号　下がTG_Vdd(ターゲット電源)電圧 1ｍS/div  
-![IMG_0687](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/cab0e20f-a592-41f3-ac10-f1b539ac5599)  
+ <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/cab0e20f-a592-41f3-ac10-f1b539ac5599" width="480">  
 
 USBserial基板の3.3V電源でも、RESETの立ち上がり後２～3ｍS十分余裕をもって12Vパルスがでているのがわかると思います。  
 
