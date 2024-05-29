@@ -7,10 +7,13 @@ This is a new AVR ATTINY series UPDI programmer with HV pulse injection avility 
 ### USB Serial変換基板を使ったUPDI対応プログラマー
 AVR New ATTINY 0/1/2 シリーズは旧ATTINY13,85等より性能が上がって、値段も手ごろなので
 これを気軽に使いたいと思いました。  
+
 しかし、書き込み方式が今までの3線ICSPから1線のUPDI方式にかわり、いままでのAVR ISP MK2とか
 の安価な書き込み機が使えなくなりました。ATMEL ICEとかメッチャ高価ですし。  
+  
 また、手持ちの中華製のパラレルプログラマーTL866-IIも対応していないので、高電圧プログラム
 によるFUSE書き替えもできなくなり、不便になりました。  
+
 そのような背景で、高電圧プログラムに対応したUPDI対応のプログラマーを作りました。
 下のステップで開発を行いました。  
 1. 中華製USB Serial変換モジュールを使ったUPDI対応のプログラマーを作る。  
