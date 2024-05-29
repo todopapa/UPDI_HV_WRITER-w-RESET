@@ -77,9 +77,13 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 
 **UPDI_HVP_PROGRAMMER_V18回路図**  
 
+### 基板パターン図
+
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e09b60c3-313e-40db-b92a-36d270b87985" width="640">
+
 回路図と基板ははKiCadで設計しました。  
-接続は、USBserialモジュールと2.54ｍｍピッチのピンソケット6Pを使って接続します。  
-向きが逆になるので、ピン配列も逆になるので注意してくださいね。
+接続は、USBserial基板と2.54ｍｍピッチのピンソケット6Pを使って接続します。  
+USBserial基板と向きが逆になるので、ピン配列も逆になるので注意してくださいね。
 1. GND
 2. DTS
 3. Vcc
@@ -167,6 +171,15 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 
 [![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像クリックでYoutubeでの動画に飛びます。ブラウザの戻る、で戻ります**    
 
+### タイミング確認
+・オシロでタイミングを確認しました。 
+**ターゲットのパスコンが１０uFの時**　上がUDPI信号　下がTG_Vdd(ターゲット電源)電圧 1ｍS/div  
+![IMG_0686](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/af174b25-3709-483d-86ac-424630ab51ce)  
+
+**ターゲットのパスコンが１００uFの時** 上がUDPI信号　下がTG_Vdd(ターゲット電源)電圧 1ｍS/div  
+![IMG_0687](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/cab0e20f-a592-41f3-ac10-f1b539ac5599)  
+
+USBserial基板の3.3V電源でも、RESETの立ち上がり後２～3ｍS十分余裕をもって12Vパルスがでているのがわかると思います。  
 
   以上の内容になります。  
 
