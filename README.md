@@ -113,8 +113,8 @@ serialUSB変換モジュールと一緒に注文してくださいね。
 
 ### 実装の注意点
 実装もとくに注意する点はないかと思います。  
-ほとんどチップ部品を使ってますので、慣れてない人には一部大変かもしれません。
-SMD(表面実装)の練習と思って頑張ってみてくださいね。 
+ほとんどチップ部品を使ってますので、慣れてない人には一部大変かもしれません。 
+SMD(表面実装)の練習と思って頑張ってみてくださいね。  
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e88c25ff-851e-4a96-863b-56bd53ab7973" width="480">    
 
 部品は1608サイズのチップ部品がほとんどです。ICやFETはピッチが細かいですが  
@@ -135,9 +135,10 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/2af494f8-31a1-4eba-bee7-77438e3d14d5" width="480">    
 
-・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。     
+・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。  
 
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e2da1b93-806f-4e62-9946-2d508ed946c6" width="480">    
+
 ・GUIのAVRDUDESSをPCにインストールしておきます。  
 　さきほどのテスト用HEXファイルをターゲットのATTINY402に書き込みます。  
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/c2430fee-ec31-4e97-b804-334140cab901" width="480">   
