@@ -172,8 +172,8 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 
 [![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像クリックでYoutubeでの動画に飛びます。ブラウザの戻る、で戻ります**    
 
-### タイミング確認
-・オシロでタイミングを確認しました。 
+### タイミング確認  
+・オシロでタイミングを確認しました。   
 **ターゲットのパスコンが１０uFの時**　上がUDPI信号　下がTG_Vdd(ターゲット電源)電圧 1ｍS/div  
  <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/af174b25-3709-483d-86ac-424630ab51ce" width="480"> 
 
