@@ -156,14 +156,16 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 　今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。 
  今回のプロジェクトでは、クロック 16MHzでPA0 RESETピンをGPIOにする設定で、  
 　OSCCFG（FUSE2）を20MHｚ→ 16ＭＨｚ、SISYCFG0（FUSE５）をUPDI→ GPIOに変更するので、 
-　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます（com7はご自分の環境にて） 
+　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます  
+ （com7はご自分の環境にて変えてください
+ ）   
  <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/656d9b48-e459-4484-8cec-75ec6dbe481c" width="480">  
 
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)  
 　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。   
  　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。 
 
-[![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像をクリックするとYoutubeへの動作確認動画に飛びます。ブラウザの戻る、で戻ります**    
+[![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像クリックでYoutubeでの動画に飛びます。ブラウザの戻る、で戻ります**    
 
 
   以上の内容になります。  
