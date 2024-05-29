@@ -155,10 +155,11 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
  <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/656d9b48-e459-4484-8cec-75ec6dbe481c" width="480">  
 
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)  
-　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。 
+　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。   
  　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。 
 
 [![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像をクリックするとYoutubeへの動作確認動画に飛びます。ブラウザの戻る、で戻ります**    
+
 
   以上の内容になります。  
 
@@ -170,6 +171,6 @@ http://tutujith.blog.fc2.com/blog-entry-726.html
 つつじが丘おもちゃ病院tinyAVR電子オルゴールVer1_2（tiny402をサポート）  
 http://tutujith.blog.fc2.com/blog-entry-741.html  
 糸魚川「おもちゃクリニックゆりかご」Dr.わたなべ氏 おもちゃ修理「電子カルテ」  
-https://blog.canpan.info/charts/ 　
+https://blog.canpan.info/charts/   
 トドお父さん通信 「ATTINY402に電子オルゴールのHVPプログラム書き込みテストをしました」  
 https://ameblo.jp/powpher/entry-12852703185.html  
