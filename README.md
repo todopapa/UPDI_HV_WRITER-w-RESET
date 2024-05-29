@@ -124,10 +124,12 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 つつじが丘おもちゃ病院の大泉さんのTINY402電子オルゴールV1.2のテスト回路を実装した時を例にして使い方を説明します。    
 手順としては下記のようになります。  
 ・テストプロジェクトをATMEL STUDIOでコンパイルします。生成したHEXファイルはプロジェクトのreleaseに入ります。  
-<img src=https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/686991d0-5f53-46f4-b4ff-daec3d81dd3b" width="480"
+
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/686991d0-5f53-46f4-b4ff-daec3d81dd3b" width="480"> 
 
 ・ターゲットとしてブレッドボード上にATTINY402を使ったテスト回路を組みます。動作確認なのでシンプルなものを。
-<img src=https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/2af494f8-31a1-4eba-bee7-77438e3d14d5" width="480">  
+
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/2af494f8-31a1-4eba-bee7-77438e3d14d5" width="480">  
 
 ・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。   
 
@@ -143,6 +145,9 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)
 　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。
  　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。
+
+  [!['オルゴール演奏テスト']('サムネイル画像のURL')]('https://youtu.be/el-AeCiNPmo')
+
 
   以上の内容になります。
 
