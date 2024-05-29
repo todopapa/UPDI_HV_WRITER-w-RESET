@@ -138,11 +138,18 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e2da1b93-806f-4e62-9946-2d508ed946c6" width="480">  
 ・GUIのAVRDUDESSをPCにインストールしておきます。
 　さきほどのテスト用HEXファイルをターゲットのATTINY402に書き込みます。
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/c2430fee-ec31-4e97-b804-334140cab901" width="480">
+
+ 
 　このときは、まだFUSEビットが書き込まれていないので、そのまま書けるはずです
   もし、FUSEが書き込まれていた場合は、書き込み機の黄色ボタンと赤ボタンを上にある手順で押してから書いて下さい。
   
 ・次にFUSEの書き込みを行います。AVRDUDESSが新ATTINYシリーズのFUSE書き込みに対応していないので、
 　今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。
+ 今回のプロジェクトでは、クロック 16MHzでPA0 RESETピンをGPIOにする設定で、  
+　OSCCFG（FUSE2）を20MHｚ→ 16ＭＨｚ、SISYCFG0（FUSE５）をUPDI→ GPIOに変更するので、
+　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます（com7はご自分の環境にて）
+ <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/656d9b48-e459-4484-8cec-75ec6dbe481c" width="480">
 
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)
 　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。
@@ -153,11 +160,13 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
   以上の内容になります。  
 
 ## 他のATTINY202/402 UPDIプログラマ(書き込み機）開発参考資料
-ATTINY202/402/802 datasheet  
-https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATtiny202-204-402-404-406-DataSheet-DS40002318A.pdf 
-つつじが丘おもちゃ病院tinyAVRプログラマー
-http://tutujith.blog.fc2.com/blog-entry-726.html
-つつじが丘おもちゃ病院tinyAVR電子オルゴールVer1_2（tiny402をサポート）
-http://tutujith.blog.fc2.com/blog-entry-741.html
-糸魚川「おもちゃクリニックゆりかご」Dr.わたなべ氏 おもちゃ修理「電子カルテ」
-https://blog.canpan.info/charts/
+ATTINY202/402/802 datasheet    
+https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATtiny202-204-402-404-406-DataSheet-DS40002318A.pdf   
+つつじが丘おもちゃ病院tinyAVRプログラマー  
+http://tutujith.blog.fc2.com/blog-entry-726.html  
+つつじが丘おもちゃ病院tinyAVR電子オルゴールVer1_2（tiny402をサポート）  
+http://tutujith.blog.fc2.com/blog-entry-741.html  
+糸魚川「おもちゃクリニックゆりかご」Dr.わたなべ氏 おもちゃ修理「電子カルテ」  
+https://blog.canpan.info/charts/ 　
+トドお父さん通信 「ATTINY402に電子オルゴールのHVPプログラム書き込みテストをしました」  
+https://ameblo.jp/powpher/entry-12852703185.html
