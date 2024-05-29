@@ -126,7 +126,9 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 ・テストプロジェクトをATMEL STUDIOでコンパイルします。生成したHEXファイルはプロジェクトのreleaseに入ります。  
 
 
-・ターゲットとしてブレッドボード上にATTINY402を使ったテスト回路を組みます。  
+・ターゲットとしてブレッドボード上にATTINY402を使ったテスト回路を組みます。動作確認なのでシンプルなものを。
+<img src=https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/2af494f8-31a1-4eba-bee7-77438e3d14d5 width="480">  
+
 ・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。   
 
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e2da1b93-806f-4e62-9946-2d508ed946c6" width="480">  
