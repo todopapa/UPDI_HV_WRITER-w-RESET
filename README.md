@@ -19,7 +19,8 @@ AVR New ATTINY 0/1/2 シリーズは旧ATTINY13,85等より性能が上がって
 1. 中華製USB Serial変換モジュールを使ったUPDI対応のプログラマーを作る。  
 2. UPDI線にPOR(パワーオンリセット)時に12Vパルスを印加できるタイミング回路を設計する。    
 3. 手作り試作で動作を検証した後、基板を起こして正式に製作する。  
-4. 
+4. 要望があれば、不具合点を改善して改版し、ほかのおもちゃドクターにも頒布する。  
+5. 
 ### このプロジェクトの概要
 HV対応のUPDIプログラマーは各種市場に出ています。代表的なのは  
 Adafruitさんの [Adafruit High Voltage UPDI Friend](https://blog.adafruit.com/2024/02/29/coming-soon-adafruit-high-voltage-updi-friend-usb-serial-updi-programmer/)  
@@ -54,8 +55,8 @@ HVﾌﾟﾛｸﾞﾗﾐﾝｸﾞ手順に入るのに先立って常に電源ON�
 12VのHVP高電圧パルスを短い数百uS加えるのが安全な方式になるかと思います。
 
 ## 設計内容
-## **TINY UPDI_HV_WRITER-ｗ-RESETの基本方針**
-以上の検討内容で、今回のリセット付きnewATTINY用UPDI HV対応プログラマーの基本方式を決めました。
+###  **TINY UPDI_HV_WRITER-ｗ-RESETの基本方針**
+以上の事前検討内容で、今回のリセット付きnewATTINY用UPDI HV対応プログラマーの基本方式を決めました。
 * 基本は安価な中華製USBserial基板を使用したUPDIserialプログラマー
 * HVPのための12V電源は簡易のDC-DC電源回路をオンボードで作り、電源はUSBserialの3.3V-5Vから供給する。
 * RESETスイッチを付けて、RESET終了後の8mS以内に2～400us幅の12V高電圧パルス(HVP)を印加できるようにする
@@ -114,13 +115,14 @@ serialUSB変換モジュールと一緒に注文してくださいね。
 実装もとくに注意する点はないかと思います。  
 ほとんどチップ部品を使ってますので、慣れてない人には一部大変かもしれません。
 SMD(表面実装)の練習と思って頑張ってみてくださいね。 
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e88c25ff-851e-4a96-863b-56bd53ab7973" width="480">    
 
 部品は1608サイズのチップ部品がほとんどです。ICやFETはピッチが細かいですが  
 少し練習すればなんとかなると思います。DC-DC用のICのピッチが0.65ｍｍと細かく 
 インダクタも熱容量が大きいので、ハンダ付けは十分注意して取り付けて下さいね。  
 
 半田付けスタンドもあると便利ですよ。  
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e88c25ff-851e-4a96-863b-56bd53ab7973" width="480">  
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/a31cd522-f385-4a7f-8ce8-3de96c2f7f1c" width="480">  
 
 ### 使い方
 つつじが丘おもちゃ病院の大泉さんのTINY402電子オルゴールV1.2のテスト回路を実装した時を例にして使い方を説明します。    
@@ -129,37 +131,37 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/686991d0-5f53-46f4-b4ff-daec3d81dd3b" width="480"> 
 
-・ターゲットとしてブレッドボード上にATTINY402を使ったテスト回路を組みます。動作確認なのでシンプルなものを。
+・ターゲットとしてブレッドボード上にATTINY402を使ったテスト回路を組みます。動作確認なのでシンプルなオルゴールを作ります。  
 
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/2af494f8-31a1-4eba-bee7-77438e3d14d5" width="480">  
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/2af494f8-31a1-4eba-bee7-77438e3d14d5" width="480">   
 
-・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。   
+・このUPDI_HV書き込み機をターゲットに接続します。赤 電源線(TG_Vdd)。黒 グランド線(GND)、白 UPDI線の3本です。     
 
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e2da1b93-806f-4e62-9946-2d508ed946c6" width="480">  
-・GUIのAVRDUDESSをPCにインストールしておきます。
-　さきほどのテスト用HEXファイルをターゲットのATTINY402に書き込みます。
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/c2430fee-ec31-4e97-b804-334140cab901" width="480">
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/e2da1b93-806f-4e62-9946-2d508ed946c6" width="480">   
+・GUIのAVRDUDESSをPCにインストールしておきます。  
+　さきほどのテスト用HEXファイルをターゲットのATTINY402に書き込みます。  
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/c2430fee-ec31-4e97-b804-334140cab901" width="480">   
 
  
-　このときは、まだFUSEビットが書き込まれていないので、そのまま書けるはずです
-  もし、FUSEが書き込まれていた場合は、書き込み機の黄色ボタンと赤ボタンを上にある手順で押してから書いて下さい。
+　このときは、まだFUSEビットが書き込まれていないので、そのまま書けるはずです。  
+  もし、FUSEが書き込まれていた場合は、書き込み機の黄色ボタンと赤ボタンを上にある手順で押してから書いて下さい。  
   
-・次にFUSEの書き込みを行います。AVRDUDESSが新ATTINYシリーズのFUSE書き込みに対応していないので、
-　今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。
+・次にFUSEの書き込みを行います。AVRDUDESSが新ATTINYシリーズのFUSE書き込みに対応していないので、  
+　今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。 
  今回のプロジェクトでは、クロック 16MHzでPA0 RESETピンをGPIOにする設定で、  
-　OSCCFG（FUSE2）を20MHｚ→ 16ＭＨｚ、SISYCFG0（FUSE５）をUPDI→ GPIOに変更するので、
-　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます（com7はご自分の環境にて）
- <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/656d9b48-e459-4484-8cec-75ec6dbe481c" width="480">
+　OSCCFG（FUSE2）を20MHｚ→ 16ＭＨｚ、SISYCFG0（FUSE５）をUPDI→ GPIOに変更するので、 
+　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます（com7はご自分の環境にて） 
+ <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/656d9b48-e459-4484-8cec-75ec6dbe481c" width="480">  
 
-・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)
-　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。
- 　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。
+・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)  
+　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。 
+ 　アンプがないので小さい音ですが、きれいな曲が聞こえると思います。 SWを長押しすると停止します。 
 
 [![オルゴール演奏テスト](https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/775e3ddb-164a-46eb-9a81-e4c0a9cf4ea9)](https://youtu.be/el-AeCiNPmo)   **<-- サムネイル画像をクリックするとYoutubeへの動作確認動画に飛びます。ブラウザの戻る、で戻ります**    
 
   以上の内容になります。  
 
-## 他のATTINY202/402 UPDIプログラマ(書き込み機）開発参考資料
+## 他のATTINY202/402 UPDIプログラマ(書き込み機）開発参考資料  
 ATTINY202/402/802 datasheet    
 https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATtiny202-204-402-404-406-DataSheet-DS40002318A.pdf   
 つつじが丘おもちゃ病院tinyAVRプログラマー  
@@ -169,4 +171,4 @@ http://tutujith.blog.fc2.com/blog-entry-741.html
 糸魚川「おもちゃクリニックゆりかご」Dr.わたなべ氏 おもちゃ修理「電子カルテ」  
 https://blog.canpan.info/charts/ 　
 トドお父さん通信 「ATTINY402に電子オルゴールのHVPプログラム書き込みテストをしました」  
-https://ameblo.jp/powpher/entry-12852703185.html
+https://ameblo.jp/powpher/entry-12852703185.html  
