@@ -1,5 +1,5 @@
 # UPDI_HV_WRITER-w-RESET
-This is a new AVR ATTINY series UPDI programmer with HV pulse injection avility on power on reset timing.
+This is a new AVR ATTINY series UPDI programmer with HV pulse injection ability on power on reset timing.
 <!-- ![TINY202_IR_REMOTE 2024-05-02 233458]https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965-->
 <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/7ae2ed78-f5d1-4399-9f40-e7d13989e965"  width = "480">  
 
