@@ -167,7 +167,7 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
   avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 まではAVRDUESSのCOMMANDラインに表示されていますから  
   GUIのAVRDUDESSの右端のAdditional command line argsの空白に、残りの -U fuse2:w:0x01:m -U fuse5:w:0xC0:m  
   を書いておくだけです。これで、面倒なコマンドラインからAVRDUDEを呼ばなくてもプログラムとFUSEの同時書き込みができます。  
-（PA0 RESETピンをGPIOからUPDIに戻すときは、-U fuse2:w:0x01:m -U fuse5:w:0xC4:m :mは即値(0xC4)を書き込む）  
+（PA0 RESETピンをGPIOからUPDIに戻すときは、-U fuse2:w:0x01:m -U fuse5:w:0xC4:m を書き込む）  
 
  <img src="https://github.com/user-attachments/assets/ddaed805-ab7b-4efe-a80b-e57b3501bf09" width="800">  
 
