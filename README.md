@@ -158,13 +158,13 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
   もし、FUSEが書き込まれていた場合は、書き込み機の黄色ボタンと赤ボタンを上にある手順で押してから書いて下さい。  
   
 ・次にFUSEの書き込みを行います。AVRDUDESSは新ATTINYシリーズのFUSE書き込みに対応していないのですが、  
-　~~今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。~~
-　GUIのAVRDUDESSの右端のAdditional command line argsの空白に、FUSE書き込みのコマンドを追加します。
+　~~今度はコマンドラインでAVRDUDEを使用します。AVRDUD.exeはAVRDUDESSをインストールしたフォルダにあります。~~  
+　GUIのAVRDUDESSの右端のAdditional command line argsの空白に、FUSE書き込みのコマンドを追加します。  
 　今回のプロジェクトでは、クロック 16MHzでPA0 RESETピンをGPIOにする設定で、 
 　OSCCFG（FUSE2）を20MHｚ→ 16ＭＨｚ、SISYCFG0（FUSE５）をUPDI→ GPIOに変更するので、 
 　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます。  
   （-p t402　は選択したデバイスで、-P com7はご自分の環境で変わります）  
-  avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 まではAVRDUESSのCOMMANDラインに表示されていますから、
+  avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 まではAVRDUESSのCOMMANDラインに表示されていますから  
   GUIのAVRDUDESSの右端のAdditional command line argsの空白に、残りの -U fuse2:w:0x01:m -U fuse5:w:0xC0:m  
   を書いておくだけです。これで、面倒なコマンドラインからAVRDUDEを呼ばなくてもプログラムとFUSEの同時書き込みができます。  
 （PA0 RESETピンをGPIOからUPDIに戻すときは、-U fuse2:w:0x01:m -U fuse5:w:0xC4:m :mは即値(0xC4)を書き込む）  
