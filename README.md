@@ -151,7 +151,7 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 　さきほどのテスト用HEXファイルをターゲットのATTINY402に書き込みます。  
 
  
-<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/c2430fee-ec31-4e97-b804-334140cab901" width="480">   
+<img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/c2430fee-ec31-4e97-b804-334140cab901" width="800">   
 
  
 　このときは、まだFUSEビットが書き込まれていないので、そのまま書けるはずです。  
