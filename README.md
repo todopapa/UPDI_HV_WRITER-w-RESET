@@ -171,7 +171,7 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 
 ![AVRDUDESS 2024-08-16 221341のコピー](https://github.com/user-attachments/assets/ddaed805-ab7b-4efe-a80b-e57b3501bf09)
 
- <img src="https://github.com/user-attachments/assets/ddaed805-ab7b-4efe-a80b-e57b3501bf09" width="480">  
+ <img src="https://github.com/user-attachments/assets/ddaed805-ab7b-4efe-a80b-e57b3501bf09" width="640">  
 
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)  
 　ターゲットのトグルSWを押すと、オルゴールの曲（シャボン玉とんだ）がスピーカからなるはずです。   
