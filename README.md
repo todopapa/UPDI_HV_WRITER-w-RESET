@@ -162,13 +162,12 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
 　 GUIのAVRDUDESSの右端のAdditional command line argsの空白に、FUSE書き込みのコマンドを追加します。
 　今回のプロジェクトでは、クロック 16MHzでPA0 RESETピンをGPIOにする設定で、 
 　OSCCFG（FUSE2）を20MHｚ→ 16ＭＨｚ、SISYCFG0（FUSE５）をUPDI→ GPIOに変更するので、 
-　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます。
-  （com7はご自分の環境にて変えてください）  
+　avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 -U fuse2:w:0x01:m -U fuse5:w:0xC0:m を書き込みます。  
+  （-p t402　は選択したデバイスで、-P com7はご自分の環境で変わります）  
   avrdude -Cavrdude.conf -c serialupdi -p t402 -P COM7 まではAVRDUESSのCOMMANDラインに表示されていますから、
-
- GUIのAVRDUDESSの右端のAdditional command line argsの空白に、残りの -U fuse2:w:0x01:m -U fuse5:w:0xC0:m  
- を書いておくだけです。  
-（PA0 RESETピンをUPDIからGPIOにするときは、-U fuse2:w:0x01:m -U fuse5:w:0xC0:m ）
+  GUIのAVRDUDESSの右端のAdditional command line argsの空白に、残りの -U fuse2:w:0x01:m -U fuse5:w:0xC0:m  
+  を書いておくだけです。  
+（PA0 RESETピンをGPIOからUPDIに戻すときは、-U fuse2:w:0x01:m -U fuse5:w:0xC4:m :mは即値(0xC4)を書き込む）
  <img src="https://github.com/todopapa/UPDI_HV_WRITER-w-RESET/assets/16860878/656d9b48-e459-4484-8cec-75ec6dbe481c" width="480">  
 
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)  
