@@ -169,8 +169,6 @@ SMD(表面実装)の練習と思って頑張ってみてくださいね。
   を書いておくだけです。  
 （PA0 RESETピンをGPIOからUPDIに戻すときは、-U fuse2:w:0x01:m -U fuse5:w:0xC4:m :mは即値(0xC4)を書き込む）
 
-![AVRDUDESS 2024-08-16 221341のコピー](https://github.com/user-attachments/assets/ddaed805-ab7b-4efe-a80b-e57b3501bf09)
-
  <img src="https://github.com/user-attachments/assets/ddaed805-ab7b-4efe-a80b-e57b3501bf09" width="800">  
 
 ・書き込めたら、書き込み機のRESETスイッチを押してください。（あるいはUSBケーブルをいったん抜き/差ししてください)  
