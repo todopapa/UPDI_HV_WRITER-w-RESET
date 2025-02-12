@@ -202,3 +202,5 @@ http://tutujith.blog.fc2.com/blog-entry-741.html
 https://blog.canpan.info/charts/   
 トドお父さん通信 「ATTINY402に電子オルゴールのHVPプログラム書き込みテストをしました」  
 https://ameblo.jp/powpher/entry-12852703185.html  
+トドお父さん通信 「ATTINY202/402のFUSEビットをAVRDUDESSを使って書く方法」
+https://ameblo.jp/powpher/entry-12863906067.html
